@@ -54,11 +54,10 @@ cd swift
 echo "Starting Swift build with preset: buildbot_linux,no_test"
 echo "Install destination: $PREFIX"
 
+./utils/update-checkout --clone
+
 # Run the Swift build-script with the Fedora preset
 # Use the correct argument syntax based on the error message
-./utils/build-script \
-    --preset=buildbot_linux,no_test \
-    install_destdir="$PREFIX" \
-    installable_package="$PREFIX"
+./utils/build-script --release
 
 echo "Swift build completed successfully"
